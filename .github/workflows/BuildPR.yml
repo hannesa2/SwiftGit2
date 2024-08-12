@@ -22,6 +22,12 @@ jobs:
     steps:
       - name: ls Xcode
         run: ls -la /Applications/Xcode*
+      - name: Show OpenSSL version
+        run: openssl version || echo "OpenSSL not installed"
+      - name: Install OpenSSL
+        run: brew reinstall openssl
+      - name: Show OpenSSL version
+        run: openssl version || echo "OpenSSL not installed"
       - name: Checkout
         uses: actions/checkout@v4
         with:
