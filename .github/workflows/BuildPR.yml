@@ -15,13 +15,19 @@ jobs:
         xcode: [ Xcode_14.1.0, Xcode_13.3 ]
         os: [ macos-12 ]
         architecture: [ x86_64 ]
-#        include:
-#          - xcode: Xcode
-#            os: ARM64
-#            architecture: arm64
+        include:
+          - xcode: Xcode
+            os: macos-14
+            architecture: arm64
     steps:
       - name: ls Xcode
         run: ls -la /Applications/Xcode*
+      - name: Show OpenSSL version
+        run: openssl version || echo "OpenSSL not installed"
+      - name: Install OpenSSL
+        run: brew reinstall openssl
+      - name: Show OpenSSL version
+        run: openssl version || echo "OpenSSL not installed"
       - name: Checkout
         uses: actions/checkout@v4
         with:
