@@ -19,6 +19,10 @@ jobs:
             os: macos-14
           - xcode: Xcode_16
             os: macos-14
+          - xcode: Xcode_15.4
+            os: macos-15
+          - xcode: Xcode_16.2
+            os: macos-15
     steps:
       - name: ls Xcode
         run: ls -la /Applications/Xcode*
